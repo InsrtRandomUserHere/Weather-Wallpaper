@@ -14,6 +14,7 @@ def set_wallpaper(wallpaper_path):
 
 # Path of all wallpapers, so we don't have to use a lot of if-statements
 assigned_wallpaper = {
+    "Clear": path + "clear_day.png",
     "Thunderstorm": path + "thunderstorm.png",
     "Drizzle": path + "drizzle.png",
     "Rain": path + "raining.png",
