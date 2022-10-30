@@ -20,32 +20,16 @@ assigned_wallpaper = {
     "Clouds": path + "clouds.png",
 }
 
-# Run forever
 while True:
     data = requests.get(api_link).json()
     weather = data["weather"][0]["main"]
 
-    if weather == "Clear":
-        # System to have different wallpapers for clear daytime and clear nighttime
-        # Get current 24h-clock time
-        current_time = int(time.strftime("%H"))
-
-        # Check if it is day time (6:00am-5:59pm)
-        if (current_time >= 6) and (current_time < 18):
-            set_wallpaper(path + "clear_day.png")
-
-        # Night time (6:00pm-5:59am)
-        else:
-            set_wallpaper(path + "clear_night.png")
-
-    # If the weather is not 'Clear', set another wallpaper
-    else:
-        try:
-            set_wallpaper(assigned_wallpaper[weather])
+    try:
+        set_wallpaper(assigned_wallpaper[weather])
 
         # If we don't have a wallpaper for a weather, we set it to this
-        except KeyError:
-            set_wallpaper(path + "unknown.jpg")
+    except KeyError:
+        set_wallpaper(path + "unknown.jpg")
 
     # Run every 10 minutes
     time.sleep(60 * 10)
