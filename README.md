@@ -1,5 +1,5 @@
 
-# Weather-Wallpaper
+# Weatherpaper
 
 Weather-Wallpaper changes your desktop wallpaper based on your current weather. This works by calling to a weather API and fetching the information there.
 
